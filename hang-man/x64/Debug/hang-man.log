@@ -1,7 +1,4 @@
 ﻿  main.c
-C:\Users\tygin\Repos\hang-man\hang-man\main.c(13,2): warning C4013: 'game' undefined; assuming extern returning int
-C:\Users\tygin\Repos\hang-man\hang-man\main.c(141,45): warning C4047: '=': 'char' differs in levels of indirection from 'char [2]'
-C:\Users\tygin\Repos\hang-man\hang-man\main.c(169,46): warning C4047: '=': 'char' differs in levels of indirection from 'char [2]'
-C:\Users\tygin\Repos\hang-man\hang-man\main.c(57,7): warning C4101: 'correctlyGuessedLetters': unreferenced local variable
-C:\Users\tygin\Repos\hang-man\hang-man\main.c(44): warning C4172: returning address of local variable or temporary: correctLetters
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(8,2): warning C4013: 'game' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(21,7): warning C4101: 'correctlyGuessedLetters': unreferenced local variable
   hang-man.vcxproj -> C:\Users\tygin\Repos\hang-man\hang-man\x64\Debug\hang-man.exe

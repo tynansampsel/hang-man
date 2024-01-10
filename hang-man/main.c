@@ -1,54 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+
+char* testFunc(char* inputArray, int size);
 
 int main() {
-
-	printf("hi!\n");
-
-	//char arr[] = "abcde";
-	//int length = sizeof(arr) / sizeof(arr[0]);
-
-
-	//testFunc(arr, length);
-
 	game();
 	return 0;
 }
 
-int testFunc(char arr[], int length) {
-	for (int i = 0; i < length; i++) {
-		printf("%c", arr[i]);
-	}
-
-	return 0;
-}
-
-
-char* getCorrectLetterArray(char arr[], int length) {
-	char correctLetters[27];
-	int correctLettersLength = 0;
-
-	for (int i = 0; i < 27; i++) {
-		//loop through answer and if the letter doesnt exist, add it.
-		int hasLetter = 0;
-		for (int j = 0; j < 27; j++) {
-			if (correctLetters[j] == arr[i]) {
-				hasLetter = 1;
-			}
-		}
-		if (hasLetter == 0) {
-			correctLetters[correctLettersLength] = arr[i];
-			correctLettersLength++;
-		}
-	}
-
-	return correctLetters;
-}
 
 int game() {
 	int gameOver = 0;
-	char answer[] = "epass";
-
-	
+	char answer[] = "christmas";
+	int answerLength = sizeof(answer) / sizeof(answer[0]);
 
 	char guessedLetters[27];
 	int guessedLettersLength = 0;
@@ -61,33 +26,38 @@ int game() {
 
 	//build the correct letter array
 	char correctLetters[27];
-	//char* correctLetters = getCorrectLetterArray(answer, 27);
 	int correctLettersLength = 0;
 
-	
-	for (int i = 0; i < 27; i++) {
+	for (int i = 0; i < answerLength-1; i++) {
 		//loop through answer and if the letter doesnt exist, add it.
 		int hasLetter = 0;
-		for (int j = 0; j < 27; j++) {
-			if (correctLetters[j] == answer[i]) {
-				hasLetter = 1;
+		if (i > 0) {
+			for (int j = 0; j < 27; j++) {
+				if (correctLetters[j] == answer[i]) {
+					hasLetter = 1;
+				}
 			}
 		}
+
 		if (hasLetter == 0) {
 			correctLetters[correctLettersLength] = answer[i];
 			correctLettersLength++;
 		}
 	}
+	correctLetters[correctLettersLength] = '\0';
 
-	printf("[ %s ]\n", correctLetters);
+	printf("[ %s ] %d\n", correctLetters, correctLettersLength);
+
 
 	do {
+
+		// ----- [ DISPLAY HANGMAN ]
 		printf("/////////////////////////////////////////\n");
 		printf("      _________  ");
 
 		//display correct letters
 		printf("  ");
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < answerLength-1; i++) {
 			int hasLetter = 0;
 			for (int j = 0; j < guessedLettersLength; j++) {
 				if (answer[i] == guessedLetters[j]) {
@@ -103,7 +73,7 @@ int game() {
 		}
 		printf("  \n");
 
-		printf("      |       |  \n");
+		printf("      |       |  ");
 
 		//display guessed letters
 		for (int i = 0; i < guessedLettersLength; i++) {
@@ -119,6 +89,7 @@ int game() {
 				printf("%c ", guessedLetters[i]);
 			}
 		}
+		printf("\n");
 
 		printf( "      |       0  \n"
 				"      |      /|\\  \n"
@@ -128,34 +99,48 @@ int game() {
 				"  ____T________  \n\n");
 
 
+		// ----- []
+
+
+		// ----- [ GET INPUT ]
 		int correctGuess = 0;
+
 		printf("Guess a letter: ");
 		fgets(guessedLetter, 3, stdin);
-		//printf("guessed: %c\n",guessedLetter[0]);
+		// ----- []
+
+
+		// ----- [ ADD INPUT INTO GUESSED ARRAY ]
+		//inputs
+			//gussed array
+			//guessed array length
+			//gussedLetter
+			//correctletters
+			//correctlettersLength
+			//
 
 		int hasBeenGuessedAlready = 0;
-
 		if (guessedLettersLength < 1) {
 			//printf("currentUsedLength is 0 so adding\n");
 
+			//add letter to array
 			guessedLetters[guessedLettersLength] = guessedLetter[0];
-			guessedLetters[guessedLettersLength + 1] = "\0";
+			guessedLetters[guessedLettersLength + 1] = '\0';
 			//printf("added: %c\n", guessedLetter[0]);
 			guessedLettersLength++;
 
-
+			//check if this is a correct letter
 			for (int j = 0; j < correctLettersLength; j++) {
 				if (correctLetters[j] == guessedLetter[0]) {
 					correctGuess = 1;
 				}
 			}
-
 			//printf("[ %s ]\n", guessedLetters);
+
 
 		}
 		else {
-
-
+			//check every letter in the guessed array. if this letter is not already in this array, add it.
 			for (int i = 0; i < (guessedLettersLength +1); i++) {
 				//printf("[  %d  ] [ %c ] \n", i, guessedLetters[i]);
 
@@ -164,10 +149,9 @@ int game() {
 					hasBeenGuessedAlready = 1;
 				}
 			}
-
 			if (hasBeenGuessedAlready == 0) {
 				guessedLetters[guessedLettersLength] = guessedLetter[0];
-				guessedLetters[guessedLettersLength + 1] = "\0";
+				guessedLetters[guessedLettersLength + 1] = '\0';
 				//printf("added: %c\n", guessedLetter[0]);
 				guessedLettersLength++;
 
@@ -176,11 +160,14 @@ int game() {
 						correctGuess = 1;
 					}
 				}
-			
 			}
+
 
 			//printf("[ %s ]\n", guessedLetters);
 		}
+		// ----- []
+
+		// ----- [ DISPLAY IF CORRECT ]
 		printf("\n");
 
 		if (correctGuess == 1) {
@@ -189,24 +176,24 @@ int game() {
 		else {
 			printf("%c is incorrect.\n", guessedLetter[0]);
 		}
+		printf("correct:%d %s \n", correctLettersLength, correctLetters);
+		printf("guessed:%d %s \n", guessedLettersLength, guessedLetters);
+		// ----- []
+
 		
-
-		int allCorrect = 1;
+		// ----- [ CHECK FOR VICTORY ]
 		//check for victory
-
 		//i = correctLetters
 		//j = guessedLetters
-		for (int i = 0; i < correctLettersLength-1; i++) {
-			//loop through answer and if the letter doesnt exist, add it.
+		//loop through answer and if the letter doesnt exist, add it.
+		int allCorrect = 1;
+		for (int i = 0; i < correctLettersLength; i++) {
+			
 			int hasLetter = 0;
 
 			for (int j = 0; j < guessedLettersLength; j++) {
 				if (correctLetters[i] == guessedLetters[j]) {
-					//printf("%c == %c\n", correctLetters[i], guessedLetters[j]);
 					hasLetter = 1;
-				}
-				else {
-					//printf("%c // %c\n", correctLetters[i], guessedLetters[j]);
 				}
 			}
 
@@ -214,18 +201,20 @@ int game() {
 				allCorrect = 0;
 			}
 		}
+		// ----- []
 
 		printf("\n");
 
-
+		// ----- [ END GAME IF VICTORIOUS ]
 		if (allCorrect == 1) {
 			printf("\nWinner!\n\n");
-
 			gameOver = 1;
 		}
+		// ----- []
+
 	} while (gameOver == 0);
 
-	printf("\n\n\n game over!!!");
+	printf("\n\n\n game over!");
 
 	return 0;
 }
