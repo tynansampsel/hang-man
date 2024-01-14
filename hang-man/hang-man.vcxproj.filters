@@ -21,8 +21,5 @@
     <ClCompile Include="GetCorrectLettersArray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testFunc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-char* testFunc(char* inputArray, int size);
+//char* testFunc(char* inputArray, int size);
 
 int main() {
 	game();
@@ -12,7 +12,7 @@ int main() {
 
 int game() {
 	int gameOver = 0;
-	char answer[] = "christmas";
+	char answer[] = "hangman";
 	int answerLength = sizeof(answer) / sizeof(answer[0]);
 
 	char guessedLetters[27];
