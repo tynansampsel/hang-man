@@ -46,7 +46,7 @@ int game() {
 	}
 	correctLetters[correctLettersLength] = '\0';
 
-	printf("[ %s ] %d\n", correctLetters, correctLettersLength);
+	//printf("[ %s ] %d\n", correctLetters, correctLettersLength);
 
 
 	do {
