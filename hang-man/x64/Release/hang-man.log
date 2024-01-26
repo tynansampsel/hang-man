@@ -1,0 +1,21 @@
+﻿  addInputIntoGuessedArray.c
+  displayCorrectLetters.c
+  displayGuessedLetters.c
+  main.c
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(11,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(13,2): warning C4013: 'game' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(27,2): warning C4013: 'getRandomWord' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(45,2): warning C4013: 'getCorrectLettersArray' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(61,3): warning C4013: 'displayCorrectLetters' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(62,3): warning C4013: 'displayGuessedLetters' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(63,3): warning C4013: 'displayHangMan' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(84,4): warning C4013: 'addInputIntoGuessedArray' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(97,4): warning C4013: 'isAllLettersFound' undefined; assuming extern returning int
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(128,10): warning C4129: 'L': unrecognized character escape sequence
+C:\Users\tygin\Repos\hang-man\hang-man\main.c(34,7): warning C4101: 'correctlyGuessedLetters': unreferenced local variable
+  Generating code
+  9 of 13 functions (69.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  hang-man.vcxproj -> C:\Users\tygin\Repos\hang-man\hang-man\x64\Release\hang-man.exe

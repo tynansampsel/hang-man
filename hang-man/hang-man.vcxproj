@@ -127,8 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="addInputIntoGuessedArray.c" />
+    <ClCompile Include="displayCorrectLetters.c" />
+    <ClCompile Include="displayGuessedLetters.c" />
+    <ClCompile Include="displayHangMan.c" />
     <ClCompile Include="GetCorrectLettersArray.c" />
+    <ClCompile Include="getRandomWord.c" />
+    <ClCompile Include="isAllLettersFound.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="oldMain.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

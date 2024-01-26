@@ -2,33 +2,43 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* getCorrectLettersArray(char arr[], int length, int *correctLettersLength) {
+void getCorrectLettersArray(char* inP, char* outP, int* length)
+{
+    int l = 0;
+    while (*inP) {
+        //printf("> %c\n", *inP);
 
-	char* correctLetters = (char*)malloc((length + 1) * sizeof(char));  // +1 for null terminator
-
-	int cllength = 0;
-
-	for (int i = 0; i < 27; i++) {
-		//loop through answer and if the letter doesnt exist, add it.
-		int hasLetter = 0;
-
-		for (int j = 0; j < length; j++) {
-			if (correctLetters[j] == arr[i]) {
-				hasLetter = 1;
-			}
-		}
-
-		if (hasLetter == 0) {
-			correctLetters[cllength] = arr[i];
-			cllength++;
-		}
-	}
-	printf("correct:%d %s \n", cllength, correctLetters);
+        int hasLetter = 0;
+        int c = 0;
 
 
-	*correctLettersLength = cllength;
-	correctLetters[cllength] = '\0';
+        while (*(outP + c)) {
+            //printf("[ %c  %c ]", *inP, *(outP + c));
+
+            if (*inP == *(outP + c)) {
+                //printf("!");
+
+                hasLetter = 1;
+            }
+
+            c++;
+        }
+        //printf("\n");
+
+        if (hasLetter == 0) {
+            *(outP + l) = *inP;
+
+            l++;
+        }
+
+        //*pointer = toupper(*pointer);
 
 
-	return correctLetters;
+
+
+        inP++;
+    }
+
+    *length = (l);
+    *(outP + l) = '\0';
 }

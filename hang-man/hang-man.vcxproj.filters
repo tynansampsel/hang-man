@@ -21,5 +21,26 @@
     <ClCompile Include="GetCorrectLettersArray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="getRandomWord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displayCorrectLetters.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="addInputIntoGuessedArray.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="isAllLettersFound.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displayHangMan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="oldMain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displayGuessedLetters.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
